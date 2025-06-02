@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #e9eff5;
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .certificate-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-frame {
+            border: 12px solid #2c3e50;
+            padding: 20px;
+            position: relative;
+            background: #fffdf6;
+        }
+
+        .certificate-inner {
+            text-align: center;
+            padding: 40px;
+            border: 4px dashed #34495e;
+        }
+
+        .certificate-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .certificate-subtitle,
+        .certificate-subtext {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .certificate-name {
+            font-size: 28px;
+            color: #1a73e8;
+            margin: 20px 0;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .certificate-course {
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .certificate-date {
+            font-style: italic;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .certificate-signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding: 0 30px;
+        }
+
+        .signature-block {
+            text-align: center;
+        }
+
+        .signature-block .line {
+            width: 200px;
+            border-bottom: 1px solid #222;
+            margin-bottom: 6px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signature-block p {
+            margin: 0;
+            font-size: 14px;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="certificate-container">
+        <div class="certificate-frame">
+            <div class="certificate-inner">
+                <h1 class="certificate-title">Certificate of Achievement</h1>
+                <p class="certificate-subtitle">This is proudly presented to</p>
+                <h2 class="certificate-name" id="studentName">
+                    <%=name%>
+                </h2>
+                <p class="certificate-subtext">for successfully completing the course</p>
+                <h3 class="certificate-course" id="courseName">
+                    <%=course%>
+                </h3>
+                <p class="certificate-date">Date: <span id="issueDate"></span></p>
+
+                <div class="certificate-signatures">
+                    <div class="signature-block">
+                        <div class="line"></div>
+                        <p>Instructor</p>
+                    </div>
+                    <div class="signature-block">
+                        <div class="line" id="twoline"></div>
+                        <p>signature</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/" style="display:block; text-align:center; margin: 30px 0 0 0; font-size:18px; color:#1a73e8; text-decoration:underline;">
+            &larr; Back to Home Page
+        </a>
+    </div>
+</body>
+
+<script>
+    let date = document.querySelector("#issueDate");
+    let dateupdate = new Date().toLocaleDateString();
+    date.innerHTML = dateupdate
+
+
+    let Instructor = document.querySelector(".line");
+    Instructor.innerHTML = "SAM Markss..."
+
+    let twoline = document.querySelector("#twoline");
+    twoline.innerHTML = "<%=email%>"
+</script>
+
+</html>
